@@ -11,6 +11,9 @@ module.exports = {
       libraryTarget: 'var',
       library: 'Client'
     },
+    optimization: {
+    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
@@ -23,7 +26,7 @@ module.exports = {
           },
           {
               test: /\.scss$/,
-              use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+              use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
           }
       ]
     },
@@ -32,6 +35,7 @@ module.exports = {
             template: "./src/client/views/index.html",
             filename: "./index.html",
         }),
+        new MiniCssExtractPlugin({filename: '[name].css'}),
         new CleanWebpackPlugin({
             // Simulate the removal of files
             dry: true,
