@@ -4,11 +4,8 @@ const mockAPIResponse = require('./mockAPI.js')
 var bodyParser = require('body-parser')
 var cors = require('cors')
 
-var json = {
-    'title': 'test json response',
-    'message': 'this is a message',
-    'time': 'now'
-}
+
+
 
 const app = express()
 app.use(cors())
@@ -35,3 +32,14 @@ app.get('/test', function (req, res) {
 app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
+
+
+
+const dotenv = require('dotenv');
+dotenv.config();
+
+var json = {
+    'title': 'test json response',
+    'message': 'this is a message',
+    'time': 'now'
+}

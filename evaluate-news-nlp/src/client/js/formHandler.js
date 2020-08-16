@@ -14,3 +14,6 @@ function handleSubmit(event) {
 }
 
 export { handleSubmit }
+
+
+//"https://api.meaningcloud.com/sentiment-2.1?key=<<YOUR OWN KEY>>&of=json&txt=<<YOUR OWN TXT>>&model=<<MODEL>>&lang=en"//
