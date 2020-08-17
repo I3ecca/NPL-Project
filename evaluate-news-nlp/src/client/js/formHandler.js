@@ -5,10 +5,7 @@ import 'regenerator-runtime/runtime';
 
 function handleSubmit(event) {
     event.preventDefault()
-    // check what text was put into the form field
     let formText = document.getElementById('name').value
-
-    console.log(formText)
     //changed path name to something more meaningful//
     fetch("http://localhost:8081/getKey")
         .then(res => res.json())
@@ -22,14 +19,13 @@ function handleSubmit(event) {
                     document.getElementById('confidence').innerHTML = "Confidence:  " + data.confidence;
                     document.getElementById('irony').innerHTML = "Irony:  " + data.irony;
                     document.getElementById('model').innerHTML = "Model:  " + data.model;
-                    document.getElementById('scoretag').innerHTML = "Score Tag:  " + data.score_tag;
+                    document.getElementById('subjectivity').innerHTML = "Subjectivity:  " + data.subjectivity;
 
 
                     console.log("response from meaningfulCloud", data.irony);
                 })
         })
 }
-
 
 
 const getInterpretation = async (baseURL, apikey, formText, lang) => {
@@ -45,8 +41,6 @@ const getInterpretation = async (baseURL, apikey, formText, lang) => {
         console.log("error", error);
     }
 }
-
-
 
 
 export {
